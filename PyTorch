@@ -1,5 +1,11 @@
 SCAI Workshop: PyTorch
 
+Project Summary:
+Binary image classifier that predicts whether pig meat is Fresh (1) or Not_Fresh (0) using images, 
+optional data (being cooked/raw, frozen/thawed, what the temperature is, storage time) 
+
+
+
 Weights are also called parameters 
 (last week (part 1): neural networks and perceptron)
 Model nonlinear?
