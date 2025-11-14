@@ -60,9 +60,10 @@ optimizer.step()
 
 #Can use other layers besides linear layers 
 
+'''
 with torch.no_grad
 Test loop:
 Same as train, but use test data and no learn step
 Convolution (conv2d) for images instead of linear
-self.layer1 = nn.conv2d(2, 3)
+self.layer1 = nn.conv2d(2, 3)'''
 
