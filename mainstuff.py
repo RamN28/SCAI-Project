@@ -3,29 +3,29 @@ import torch.nn as nn #neural network section of torch
 
 class myNN(nn.Module):
 
-def __init__(self): 
-	self.layer1 = nn.Linear(2, 3)  #lets say we have 2 hidden layers 👍
+	def __init__(self): 
+		self.layer1 = nn.Linear(2, 3)  #lets say we have 2 hidden layers 👍
 			 #takes in certain amt of inputs and outputs
-	self.layer2 = nn.Linear(3, 2)  # 3 inputs, 2 outputs
-	self.layer3 = nn.Linear(2, 1)  # 2 inputs, 1 output
-	#too many layers may be too much computing or overfit data
+		self.layer2 = nn.Linear(3, 2)  # 3 inputs, 2 outputs
+		self.layer3 = nn.Linear(2, 1)  # 2 inputs, 1 output
+		#too many layers may be too much computing or overfit data
 	
-	self.relu = nn.ReLU()  #activation! Defines RELU function, more common 
+		self.relu = nn.ReLU()  #activation! Defines RELU function, more common 
 # can also use nn.sigmoind 
 	
 #now need to call all the methods
 
-def forward(self, input):
-	#getting an input, just need to return output of function
-	result = self.layer1(input)
-	result = self.relu(result)	#need to make sure result1 are nonlinear
+	def forward(self, input):
+		#getting an input, just need to return output of function
+		result = self.layer1(input)
+		result = self.relu(result)	#need to make sure result1 are nonlinear
 
-	result = self.layer2(result)
-	result = self.relu(result)
+		result = self.layer2(result)
+		result = self.relu(result)
 
-	result = self.layer3(result)
-	# dont need a relu at the end, since output values won’t go into anything, doesn’t need to be nonlinear
-    return result 
+		result = self.layer3(result)
+		# dont need a relu at the end, since output values won’t go into anything, doesn’t need to be nonlinear
+		return result 
 
 
 
@@ -45,8 +45,8 @@ optim = ADAM(0.01)
 
 #step 2: score
 for i in range(100):
-predict = model(train_input)
-loss = loss_fn(pred, train_output) #good or bad our predictions are
+	predict = model(train_input)
+	loss = loss_fn(pred, train_output) #good or bad our predictions are
 
 
 #step 3: learn (don’t use this when testing)
