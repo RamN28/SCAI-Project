@@ -67,3 +67,7 @@ Same as train, but use test data and no learn step
 Convolution (conv2d) for images instead of linear
 self.layer1 = nn.conv2d(2, 3)'''
 
+
+
+
+
