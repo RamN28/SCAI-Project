@@ -5,8 +5,8 @@ from torch.utils.data import DataLoader, random_split
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-from utils.data_loader import MeatFreshnessDataset, get_transforms
-from models.simple_cnn import SimpleMeatCNN
+from dataLoaderSetup import MeatFreshnessDataset, get_transforms
+from CNNModel import SimpleMeatCNN
 
 def train_model():
     # Configuration
