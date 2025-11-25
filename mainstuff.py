@@ -1,19 +1,61 @@
-# mainstuff.py - Simple test to check if everything works
 import torch
-from CNNModel import SimpleMeatCNN
+import torch.nn as nn #neural network section of torch
 
-def test_model():
-    # Test if model can be created
-    model = SimpleMeatCNN(num_classes=3)
-    print("✓ Model created successfully!")
-    
-    # Test a dummy input
-    dummy_input = torch.randn(1, 3, 224, 224)  # batch_size=1, channels=3, height=224, width=224
-    output = model(dummy_input)
-    print(f"✓ Model forward pass works! Output shape: {output.shape}")
-    print(f"✓ Output: {output}")
-    
-    return True
+class myNN(nn.Module):
 
-if __name__ == "__main__":
-    test_model()
+    def __init__(self): #for layers
+        self.layer1 = nn.Linear(2, 3)  #lets say we have 2 hidden layers 👍
+                #takes in certain amt of inputs and outputs
+        self.layer2 = nn.Linear(3, 2)  # 3 inputs, 2 outputs
+        self.layer3 = nn.Linear(2, 1)  # 2 inputs, 1 output
+        #too many layers may be too much computing or overfit data
+        
+        self.relu = nn.ReLU()  #activation! Defines RELU function, more common 
+        
+    # can also use nn.sigmoind 
+        
+    #now need to call all the methods
+
+    def forward(self, input): #for activation
+        #getting an input, just need to return output of function
+        result = self.layer1(input)
+        result = self.relu(result)	#need to make sure result1 are nonlinear
+
+        result = self.layer2(result)
+        result = self.relu(result)
+
+        result = self.layer3(result)
+    # dont need a relu at the end, since output values won’t go into anything, doesn’t need to be nonlinear
+
+        return result
+
+
+    ########################################
+
+model = myNN()
+
+out = model((7,8))
+
+loss_fn = nn.MSE()  #MSE(mean square error) and CE(cross entropy)
+# loss_fn = nn.CrossEntropyLoss()  #CE (cross entropy) - for classification 
+optim = ADAM(0.01)
+#too low - model gets something wrong, but barely changes weights
+#too high - model gets something wrong, changes everything about model
+
+
+#step 2: score
+for i in range(100):
+    predict = model(train_input)
+    loss = loss_fn(pred, train_output) #good or bad our predictions are
+
+
+#step 3: learn (don’t use this when testing)
+optimizer.zero_grad()
+loss.backward() #how much to adjust each weight
+optimizer.step() 
+
+
+#yay, fully trained model!
+
+
+#Can use other layers besides linear layers 
