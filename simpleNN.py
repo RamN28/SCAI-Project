@@ -25,20 +25,20 @@ class myNN(nn.Module):
         result = self.relu(result)
 
         result = self.layer3(result)
-    # dont need a relu at the end, since output values won’t go into anything, doesn’t need to be nonlinear
+        # dont need a relu at the end, since output values won’t go into anything, doesn’t need to be nonlinear
 
         return result
 
 
-    ########################################
+########################################
 
 model = myNN()
 
-out = model((7,8))
+train_output = model((7,8))
 
 loss_fn = nn.MSE()  #MSE(mean square error) and CE(cross entropy)
 # loss_fn = nn.CrossEntropyLoss()  #CE (cross entropy) - for classification 
-optim = ADAM(0.01)
+optimizer = ADAM(0.01)
 #too low - model gets something wrong, but barely changes weights
 #too high - model gets something wrong, changes everything about model
 
@@ -46,7 +46,7 @@ optim = ADAM(0.01)
 #step 2: score
 for i in range(100):
     predict = model(train_input)
-    loss = loss_fn(pred, train_output) #good or bad our predictions are
+    loss = loss_fn(predict, train_output) #good or bad our predictions are
 
 
 #step 3: learn (don’t use this when testing)
