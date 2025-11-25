@@ -34,11 +34,12 @@ class SimpleMeatCNN(nn.Module):
             nn.BatchNorm2d(128),
             nn.MaxPool2d(2),
             nn.Dropout(0.25)
-        )  # REMOVED THE EXTRA PARENTHESIS HERE
+        )
         
+        # 224 / 2 / 2 / 2 = 28, so feature map size is 128x28x28
         self.classifier = nn.Sequential(
             nn.Flatten(),
-            nn.Linear(128 * 28 * 28, 512),  # 224/2/2/2 = 28
+            nn.Linear(128 * 28 * 28, 512),
             nn.ReLU(),
             nn.BatchNorm1d(512),
             nn.Dropout(0.5),
