@@ -4,6 +4,7 @@ This project uses PyTorch to classify pork meat into three categories:
 - Fresh
 - Half-Fresh  
 - Spoiled
+using kaggle dataset: https://www.kaggle.com/datasets/vinayakshanawad/meat-freshness-image-dataset/data
 
 ## Project Structure
 - `CNNModel.py` - Simple CNN model for image classification
