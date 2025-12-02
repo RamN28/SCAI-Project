@@ -36,34 +36,3 @@ class myNN(nn.Module):
 
         return x
 
-
-########################################
-'''
-model = myNN()
-
-train_output = model((7,8))
-
-loss_fn = nn.MSE()  #MSE(mean square error) and CE(cross entropy)
-# loss_fn = nn.CrossEntropyLoss()  #CE (cross entropy) - for classification 
-optimizer = ADAM(0.01)
-#too low - model gets something wrong, but barely changes weights
-#too high - model gets something wrong, changes everything about model
-
-
-#step 2: score
-for i in range(100):
-    predict = model(train_input)
-    loss = loss_fn(predict, train_output) #good or bad our predictions are
-
-
-#step 3: learn (don’t use this when testing)
-optimizer.zero_grad()
-loss.backward() #how much to adjust each weight
-optimizer.step() 
-
-
-#yay, fully trained model!
-
-
-#Can use other layers besides linear layers 
-'''

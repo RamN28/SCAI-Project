@@ -1,13 +1,25 @@
+import os
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from simpleNN import myNN
-from datasets import train_loader, class_names
+from datasets import train_loader
+
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Create model
 model = myNN().to(device)
+
+# Check if a previous model exists
+
+if os.path.exists("meat_model.pth"):
+    print("Loading previous weights...")
+    model.load_state_dict(torch.load("meat_model.pth", map_location=device))
+    model.train()  # make sure model is in training mode
+else:
+    print("No previous model found. Training from scratch.")
+
 
 # Loss and optimizer
 loss_fn = nn.CrossEntropyLoss()
