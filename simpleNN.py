@@ -23,7 +23,7 @@ class myNN(nn.Module):
         
     #now need to call all the methods
 
-    def forward(self, input): #for activation
+    def forward(self, x): #for activation
 
         x = self.pool(self.relu(self.conv1(x)))
         x = self.pool(self.relu(self.conv2(x)))
@@ -38,7 +38,7 @@ class myNN(nn.Module):
 
 
 ########################################
-
+'''
 model = myNN()
 
 train_output = model((7,8))
@@ -66,3 +66,4 @@ optimizer.step()
 
 
 #Can use other layers besides linear layers 
+'''

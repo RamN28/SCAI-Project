@@ -23,8 +23,8 @@ image_paths = [os.path.join(image_folder, f) for f in df[filename_column]]
 
 #image_paths = df["image_path"].tolist()
 
-env_columns = ["filename", "Fresh", "Half-Fresh", "Spoiled"]  
-env_data = [env_columns].values.astype(np.float32)
+env_columns = ["filename", " Fresh", " Half-Fresh", " Spoiled"]  
+env_data = df[env_columns].values.astype(np.float32)
 
 labels = df["freshness_label"].values.astype(np.int64)
 
