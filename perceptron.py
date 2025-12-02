@@ -4,6 +4,7 @@ import torch.nn as nn
 from torch import Tensor
 import matplotlib.pyplot as plt
 import numpy as np
+import dataprep
 
 class Perceptron():
     def __init__(self, w, b):
@@ -58,13 +59,14 @@ def plot_perceptron(neuron, max_x, min_x, x_coords_0, y_coords_0, x_coords_1, y_
 
 #DATA, REPLACE WHEN WE HAVE REAL DATA
 #Data
-data=torch.tensor([(-1, -1), (-1, -0.5), (-1, 0), (-1, 0.5), (1, 0.5), (1, -0.5), (1, 1), (1, -1)],dtype=float)
-label=torch.tensor([1,1,1,1,0,0,0,0], dtype=float)
+
+data = dataprep
+
 
 min_x = min(data[:, 0])
 max_x = max(data[:, 0])
 
-data_size=len(data)
+data_size=data.len
 data_sum=torch.sum(data,dim=0)
 data_mean=data_sum/data_size
 
